@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#531EA0">
+
+    <View
+        android:layout_width="422dp"
+        android:layout_height="415dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-4dp"
+        android:layout_marginTop="170dp"
+        android:background="@drawable/logoapp" />
+
+
+    <TextView
+        android:id="@+id/c_mo_deseas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="580dp"
+        android:fontFamily="@font/roboto_mono"
+        android:gravity="center_horizontal"
+        android:text="@string/c_mo_deseas"
+        android:textAppearance="@style/c_mo_deseas"
+        android:textColor="@color/white"
+        android:textSize="18dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="113dp"
+        android:layout_height="56dp"
+        android:layout_below="@+id/c_mo_deseas"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/boton"
+        android:elevation="4dp"
+        android:fontFamily="@font/roboto_mono"
+        android:onClick="estudiante"
+        android:text="@string/Estudiante"
+        android:textAllCaps="false"
+        android:textColor="@color/black" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="91dp"
+        android:layout_height="56dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="690dp"
+        android:background="@drawable/boton"
+        android:elevation="4dp"
+        android:fontFamily="@font/roboto_mono"
+        android:onClick="docente"
+        android:text="@string/Docente"
+        android:textAllCaps="false"
+        android:textColor="@color/black" />
+
+
+
+
+
+
+</RelativeLayout>
