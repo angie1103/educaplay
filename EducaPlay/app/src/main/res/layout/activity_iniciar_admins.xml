@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ingresar_admin"
+    tools:context=".Iniciar_admins"
     android:background="#531EA0">
 
     <View
@@ -87,12 +88,9 @@
         android:clickable="true"
         android:fontFamily="@font/roboto_mono"
         android:gravity="center_horizontal"
-        android:onClick="nuevoregistroadmin"
+        android:onClick="nuevoadmin"
         android:text="@string/registrate"
         android:textColor="@color/white"
         tools:ignore="OnClick" />
-
-
-
 
 </FrameLayout>

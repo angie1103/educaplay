@@ -1,8 +1,9 @@
 package com.paquete.educaplay;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -11,18 +12,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.loader.content.AsyncTaskLoader;
 
 import com.paquete.educaplay.ui.ConnectionClass;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class Iniciar_estudiante extends AppCompatActivity {
+public class Iniciar_admins extends AppCompatActivity {
+
     EditText usuario, contraseña;
     Button iniciar_sesion;
     Connection con;
@@ -31,10 +30,10 @@ public class Iniciar_estudiante extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_iniciar_estudiante);
-        usuario = (EditText) findViewById(R.id.usuario_estudiante1);
-        contraseña = (EditText) findViewById(R.id.contraseña_estudiante1);
-        iniciar_sesion = (Button) findViewById(R.id.btniniciarestudi);
+        setContentView(R.layout.activity_iniciar_admins);
+        usuario = (EditText) findViewById(R.id.admin_ingresar1);
+        contraseña = (EditText) findViewById(R.id.admin_ingresar2);
+        iniciar_sesion = (Button) findViewById(R.id.btniniciaradmin);
         iniciar_sesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,7 +62,7 @@ public class Iniciar_estudiante extends AppCompatActivity {
         protected String doInBackground(String... strings) {
             con = conexionBD(ConnectionClass.rol.toString(),ConnectionClass.nom.toString(), ConnectionClass.ape.toString(), ConnectionClass.correo.toString(), ConnectionClass.correo.toString(), ConnectionClass.contra.toString());
             if (con == null) {
-                Toast.makeText(Iniciar_estudiante.this, "Revisa tu conexion", Toast.LENGTH_LONG).show();
+                Toast.makeText(Iniciar_admins.this, "Revisa tu conexion", Toast.LENGTH_LONG).show();
             } else {
                 try {
 
@@ -76,19 +75,19 @@ public class Iniciar_estudiante extends AppCompatActivity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                Toast.makeText(Iniciar_estudiante.this, "Inicio de sesión exitoso", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Iniciar_admins.this, "Inicio de sesión exitoso", Toast.LENGTH_LONG).show();
                             }
                         });
                         z = "Success";
-                        Intent intent = new Intent(Iniciar_estudiante.this, MainActivity2.class);
+                        Intent intent = new Intent(Iniciar_admins.this, MainActivity2.class);
                         startActivity(intent);
                         finish();
                     } else {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                Toast.makeText(Iniciar_estudiante.this, "Revisa tu usuario o contraseña", Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(Iniciar_estudiante.this, Iniciar_estudiante.class);
+                                Toast.makeText(Iniciar_admins.this, "Revisa tu usuario o contraseña", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(Iniciar_admins.this, Iniciar_admins.class);
                                 startActivity(intent);
                             }
                         });
@@ -118,8 +117,8 @@ public class Iniciar_estudiante extends AppCompatActivity {
         }
         return conexion;
     }
-    public void nuevoestudiante (View view){
-        Intent in = new Intent(this, registrar_estudiante.class);
+    public void nuevoadmin (View view){
+        Intent in = new Intent(this, registrar_admins.class);
         startActivity(in);
     }
 }

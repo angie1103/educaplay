@@ -12,12 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
+            android:name=".Iniciar_admins"
+            android:exported="true" />
+        <activity
+            android:name=".registrar_admins"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity2"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/title_activity_main2" />
         <activity
             android:name=".Eliminar_usuarioadmin"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".registrar_estudiante"
             android:exported="true" />
@@ -29,6 +35,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
