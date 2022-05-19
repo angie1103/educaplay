@@ -30,7 +30,7 @@ public class Iniciar_estudiante extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 login();
-                Intent intent = new Intent(Iniciar_estudiante.this, MainActivity2.class);
+                Intent intent = new Intent(Iniciar_estudiante.this, registrar_estudiante.class);
                 startActivity(intent);
                 finish();
             }
@@ -48,8 +48,9 @@ public class Iniciar_estudiante extends AppCompatActivity {
                 String usua=fila.getString(0);
                 String pass=fila.getString(1);
                 if (usuario.equals(usua)&&contraseña.equals(pass)){
-                    //Intent ven=new Intent(this, buscar_estudiante.class);
-                    //startActivity(ven);
+                    Intent ven=new Intent(this, registrar_estudiante.class);
+                    startActivity(ven);
+                    finish();
                 }
             }
             else {
