@@ -73,7 +73,7 @@
         android:backgroundTint="#ED417B"
         android:elevation="4dp"
         android:fontFamily="@font/roboto_mono"
-        android:onClick="iniciobuscar"
+        android:onClick="estudiante"
         android:text="@string/Iniciar_sesión"
         android:textAllCaps="false"
         android:textColor="@color/white" />
@@ -88,7 +88,7 @@
         android:clickable="true"
         android:fontFamily="@font/roboto_mono"
         android:gravity="center_horizontal"
-        android:onClick="nuevoregistro"
+        android:onClick="nuevoestudiante"
         android:text="@string/registrate"
         android:textColor="@color/white"
         tools:ignore="OnClick" />

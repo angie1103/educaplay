@@ -1,11 +1,9 @@
 package com.paquete.educaplay;
 
-import android.content.Context;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.os.StrictMode;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,14 +13,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.nio.BufferUnderflowException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLDataException;
 import java.sql.SQLException;
 
-public class registrar_admin extends Fragment {
+public class registrar_admins extends AppCompatActivity {
+
     EditText nom, ape, correo, cod, contra;
     Button btnregistrarse;
     String pasarusu, rol;
@@ -44,9 +42,10 @@ public class registrar_admin extends Fragment {
             @Override
             public void onClick(View view) {
                 agregaradmin();
-                //Intent intent = new Intent(MainActivity2.class);
-                //intent.putExtra("usu", pasarusu);
-                //startActivity(intent);
+                Intent intent = new Intent(registrar_admins.this, Iniciar_admins.class);
+                intent.putExtra("usu", pasarusu);
+                startActivity(intent);
+                finish();
             }
         });
         img.setOnClickListener(new View.OnClickListener() {
@@ -55,17 +54,6 @@ public class registrar_admin extends Fragment {
                 Log.i("nombre :", String.valueOf("2"));
             }
         });
-    }
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_registrar_admin, container, false);
-        return rootView;
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
     }
     public Connection conexionBD(){
         Connection conexion = null;
@@ -76,7 +64,7 @@ public class registrar_admin extends Fragment {
             conexion = DriverManager.getConnection("jdbc:jtds:sqlserver://gutgara.ddns.net;databaseName=EducaPlay;user=gutgara;password=VAuX2v_1xx0_T9w;");
 
         }catch (Exception e){
-            //Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
         }
         return conexion;
     }
@@ -90,16 +78,17 @@ public class registrar_admin extends Fragment {
             pst.setString(5,correo.getText().toString());
             pst.setString(6,contra.getText().toString());
             pst.executeUpdate();
-            //Toast.makeText(getApplicationContext(),"REGISTRO AGREGADO CORRECTAMENTE",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"REGISTRO AGREGADO CORRECTAMENTE",Toast.LENGTH_SHORT).show();
         }catch (SQLDataException e){
-            //Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
     }
+
     public void registrarse(View view){
-        //Intent inic = new Intent(this,Iniciar_estudiante.class);
-       // startActivity(inic);
+        Intent inic = new Intent(this,Iniciar_admins.class);
+        startActivity(inic);
     }
 
 }
